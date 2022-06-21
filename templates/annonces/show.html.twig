@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Annonces
+{% endblock %}
+
+{% block body %}
+	<h1>Annonces</h1>
+
+	<table class="table">
+		<tbody>
+			<tr>
+				<th>Id</th>
+				<td>{{ annonce.id }}</td>
+			</tr>
+			<tr>
+				<th>Titre</th>
+				<td>{{ annonce.titre }}</td>
+			</tr>
+			<tr>
+				<th>Slug</th>
+				<td>{{ annonce.slug }}</td>
+			</tr>
+			<tr>
+				<th>Description</th>
+				<td>{{ annonce.description }}</td>
+			</tr>
+			<tr>
+				<th>Created_at</th>
+				<td>{{ annonce.createdAt ? annonce.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<a class="btn btn-success me-2" href="{{ path('app_annonces_index') }}">Retour à la liste</a>
+	<a class="btn btn-primary me-2">{{ include('annonces/_delete_form.html.twig') }}</a>
+	<a class="btn btn-success me-2" href="{{ path('app_contact') }}">Prendre un rendez pour ce logement</a>
+{% endblock %}

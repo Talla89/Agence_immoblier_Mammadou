@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+{% block title %}Connexion
+{% endblock %}
+{% block body %}
+	<main>
+		<div class="u-text-center u-mt-sm u-mb-sm u-none@md u-none@sm">
+			<h1 class="fw-bold">Agence Immobilière de Paris</h1>
+			<h2 class="fw-bold">Connexion à votre votre compte</h2>
+		</div>
+		<div class="container-fluid">
+
+			<form methods="post">
+
+				{% if error %}
+
+					<div class="alert alert-danger">{{error.messageKey|trans(error.messageData, 'security')}}</div>
+
+				{% endif %}
+				{% if app.user %}
+					<div class="mb-3">
+						Vous êtes connecté(e) comme
+						{{app.user.username}},
+
+						<a href='app_logout'>Se déconnecter</a>
+					</div>
+				{% endif %}
+
+				<form action="{{ path('app_login') }}" methods="post">
+					<div class="form-group">
+						<label for="email">Email</label>
+						<input id="email" type="email" class="form-control" name="_email" value="">
+					</div>
+					<div class="form-group">
+						<label for="email">Mot de passe</label>
+						<input id="passeword" type="password" class="form-control" name="_password" value="">
+					</div>
+
+
+					<button type="submit" class="btn btn-primary">Se connecter</button>
+
+				</form>
+			</div>
+
+
+		</main>
+	{% endblock %}

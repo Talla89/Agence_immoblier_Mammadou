@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nos Biens
+{% endblock %}
+
+{% block body %}
+	<h1>Annonces index</h1>
+
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Titre</th>
+				<th>Slug</th>
+				<th>Description</th>
+				<th>Picture</th>
+				<th>Created_at</th>
+				<th>actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			<h1 class="mt-5 text-center">Nos dernières annonces</h1>
+			{% for annonce in annonces %}
+				<tr>
+					<td>{{ annonce.id }}</td>
+					<td>{{ annonce.titre }}</td>
+					<td>{{ annonce.slug }}</td>
+					<td>{{ annonce.description }}</td>
+					<td>{{ annonce.picture }}</td>
+					<td>{{ annonce.createdAt ? annonce.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+					<td>
+						<a class="btn btn-success me-2" href="{{ path('app_annonces_show', {'id': annonce.id})}}">Voir plus</a>
+						<a class="btn btn-success me-2" href="{{ path('app_annonces_edit', {'id': annonce.id})}}">Editer</a>
+					</td>
+				</tr>
+			{% else %}
+				<tr>
+					<td colspan="6">no records found</td>
+				</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+
+	<a class="btn btn-success me-2" href="{{ path('app_annonces_new') }}">Créer un nouveau bien</a>
+{% endblock %}

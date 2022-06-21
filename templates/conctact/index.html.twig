@@ -1,0 +1,62 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ConctactController!
+{% endblock %}
+
+{% block body %}
+	<main class="c-page__main c-page__main--close">
+		<div class="u-text-center u-mt-sm u-mb-sm u-none@md u-none@sm">
+			<h1 class="fw-bold">Agence Immobilière de Paris</h1>
+			<h2 class="fw-bold">Prise de Rendez-vous</h2>
+		</div>
+		{{ form_start (form) }}
+		<form>
+
+			<div class="m-4">
+				{{ form_row (form.firstName, {'class':'form-control'}) }}
+			</div>
+			<div class="m-4">
+				{{ form_row (form.lastName, {'class':'form-control'}) }}
+			</div>
+
+			<div class="m-4">
+				{{ form_row (form.email, {'class':'form-control'}) }}
+			</div>
+			<div class="m-4">
+				{{ form_row (form.telephone, {'class':'form-control'}) }}
+			</div>
+			<div class="m-4">
+				{{ form_row (form.message, {'class':'form-control'}) }}
+			</div>
+			<button class="btn btn-primary m-4">Prendre rendez-vous</button>
+		</form>
+
+
+		{{ form_end (form) }}
+		<main>
+
+			<footer>
+				<div class="container">
+					<div class="col-6">
+						<h2 class="fw-bold">
+							Contact</h2>
+						<span class="fw-bold">Email:<span>
+								<p>talla.immoblier@gmail.com</p><br>
+								<span class="fw-bold">Téléphone:<span>
+										<p>0178630713</p><br>
+										<span class="fw-bold">Adresse:<span>
+												<p>4 square Jouvenet Paris 16ème</p>
+
+											</div>
+										</div>
+										<div>
+											<p class="float-end">
+												<a href="#">Retour en haut de la page</a>
+											</p>
+											<p>&copy; 2020–2022 Company, Inc. &middot;
+
+											</p>
+										</div>
+
+									</footer>
+								{% endblock %}
